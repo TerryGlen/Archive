@@ -6,27 +6,38 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import net.glinsey.archive.R
+import net.glinsey.archive.databinding.BookDetailFragmentBinding
+import net.glinsey.archive.ui.booklist.BookListViewModel
 
 class BookDetailFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = BookDetailFragment()
-    }
 
-    private lateinit var viewModel: BookDetailViewModel
+    private lateinit var binding: BookDetailFragmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.book_detail_fragment, container, false)
+    ): View {
+        binding =  BookDetailFragmentBinding.inflate(layoutInflater)
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(BookDetailViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val viewModel : BookListViewModel by activityViewModels()
+        viewModel.currentVolume.observe(viewLifecycleOwner){
+            it?.let{
+                binding.authors.text = it.volumeInfo.authors.toString()
+                binding.description.text = it.volumeInfo.description
+                binding.publishDate.text = it.volumeInfo.publishedDate
+                binding.title.text = it.volumeInfo.title
+            }
+
+        }
+
     }
+
 
 }

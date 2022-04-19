@@ -11,7 +11,7 @@ import net.glinsey.model.Volume
 import kotlin.math.absoluteValue
 
 
-class VolumeListAdapter : ListAdapter<Volume, VolumeListAdapter.ViewHolder>(VolumeDiffUtils()) {
+class VolumeListAdapter(private val onItemClick :(Int)-> Unit = {}) : ListAdapter<Volume, VolumeListAdapter.ViewHolder>(VolumeDiffUtils()) {
     inner class ViewHolder(val binding : FragmentBookItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
     }
@@ -23,9 +23,13 @@ class VolumeListAdapter : ListAdapter<Volume, VolumeListAdapter.ViewHolder>(Volu
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         with(holder){
-            binding.title.text = getItem(position).volumeInfo.title
-            binding.authors.text = getItem(position).volumeInfo.authors.toString()
-            binding.publishDate.text = getItem(position).volumeInfo.publishedDate
+            val volume = getItem(position)
+            binding.title.text = volume.volumeInfo.title
+            binding.authors.text = volume.volumeInfo.authors.toString()
+            binding.publishDate.text = volume.volumeInfo.publishedDate
+            itemView.setOnClickListener {
+                onItemClick.invoke(position)
+            }
         }
     }
 

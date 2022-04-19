@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import net.glinsey.archive.R
 import net.glinsey.archive.databinding.FragmentBookListBinding
 import net.glinsey.archive.ui.booklist.placeholder.PlaceholderContent
@@ -33,15 +35,24 @@ class BookListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val adapter = VolumeListAdapter()
+
+        val viewModel : BookListViewModel by activityViewModels()
+        val adapter = VolumeListAdapter{
+            viewModel.updateCurrentVolume(it)
+            navigateToBookDetails()
+        }
         binding.list.adapter = adapter
-        val viewModel : BookListViewModel by viewModels()
 
         viewModel.volumesList.observe(viewLifecycleOwner){ volumes ->
             volumes?.let{
                 adapter.submitList(it)
             }
         }
+
+    }
+
+    private fun navigateToBookDetails(){
+        findNavController().navigate(R.id.action_bookListFragment_to_bookDetailFragment)
 
     }
 
