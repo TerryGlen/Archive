@@ -24,10 +24,5 @@ class GoogleBooksApiTest {
 
     }
 
-    @Test
-    fun getBooksWithQueries() = runTest {
-        val response = service.getBooks(listOf("cat","bird").joinToString("+"))
-        assertTrue(response.items.isNotEmpty())
-    }
 
 }

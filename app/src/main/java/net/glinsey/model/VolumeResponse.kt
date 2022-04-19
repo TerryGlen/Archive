@@ -3,7 +3,7 @@ package net.glinsey.model
 
 import com.google.gson.annotations.SerializedName
 
-data class VolumesResponse(
+data class VolumeResponse(
     @SerializedName("items")
     val items: List<Volume>,
     @SerializedName("kind")
