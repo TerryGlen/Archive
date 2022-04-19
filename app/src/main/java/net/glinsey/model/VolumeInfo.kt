@@ -7,7 +7,7 @@ data class VolumeInfo(
     @SerializedName("allowAnonLogging")
     val allowAnonLogging: Boolean,
     @SerializedName("authors")
-    val authors: List<String>,
+    val authors: List<String>?,
     @SerializedName("averageRating")
     val averageRating: Double,
     @SerializedName("canonicalVolumeLink")
@@ -19,7 +19,7 @@ data class VolumeInfo(
     @SerializedName("description")
     val description: String,
     @SerializedName("imageLinks")
-    val imageLinks: ImageLinks,
+    val imageLinks: ImageLinks?,
     @SerializedName("industryIdentifiers")
     val industryIdentifiers: List<IndustryIdentifier>,
     @SerializedName("infoLink")
