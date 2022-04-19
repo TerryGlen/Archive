@@ -31,18 +31,23 @@ android {
     }
 }
 
+def nav_version = "2.4.2"
+def retrofit_version = "2.9.0"
 dependencies {
 
     // Retrofit for Manging Network Request
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:retrofit:$retrofit_version")
 
     // Logging for Retrofit Client
     implementation("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.4")
 
+    // JetPack Navigation
+    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
+    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
 
     // GSON for Parsing Api Responses
     implementation("com.google.code.gson:gson:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:$retrofit_version")
 
     // Coroutines Support
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1")
