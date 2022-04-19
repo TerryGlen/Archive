@@ -5,6 +5,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
+import coil.load
+import com.bumptech.glide.Glide
+import net.glinsey.archive.R
 import net.glinsey.archive.databinding.FragmentBookItemBinding
 
 import net.glinsey.model.Volume
@@ -24,6 +27,10 @@ class VolumeListAdapter(private val onItemClick :(Int)-> Unit = {}) : ListAdapte
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         with(holder){
             val volume = getItem(position)
+            binding.imageView.load(volume.volumeInfo.imageLinks.smallThumbnailSecure()){
+                // TODO: Add placeholder
+                placeholder(null)
+            }
             binding.title.text = volume.volumeInfo.title
             binding.authors.text = volume.volumeInfo.authors.toString()
             binding.publishDate.text = volume.volumeInfo.publishedDate

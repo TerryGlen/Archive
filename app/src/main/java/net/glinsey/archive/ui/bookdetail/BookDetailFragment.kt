@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import coil.load
 import net.glinsey.archive.R
 import net.glinsey.archive.databinding.BookDetailFragmentBinding
 import net.glinsey.archive.ui.booklist.BookListViewModel
@@ -33,6 +34,7 @@ class BookDetailFragment : Fragment() {
                 binding.description.text = it.volumeInfo.description
                 binding.publishDate.text = it.volumeInfo.publishedDate
                 binding.title.text = it.volumeInfo.title
+                binding.imageView.load(it.volumeInfo.imageLinks.thumbnailSecure())
             }
 
         }
