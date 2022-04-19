@@ -9,7 +9,7 @@ import org.junit.Test
 @OptIn(ExperimentalCoroutinesApi::class)
 class GoogleBooksApiTest {
 
-    val service = NetworkUtil.booksApi
+    private val service = NetworkUtil.booksApi
     @Test
     fun getBooksWithSingleQuery() = runTest{
         val response = service.getBooks("cat")
@@ -23,6 +23,8 @@ class GoogleBooksApiTest {
         assertTrue(response.items.count() == 20)
 
     }
+
+
 
 
 }

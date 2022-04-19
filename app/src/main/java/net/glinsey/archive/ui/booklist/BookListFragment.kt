@@ -1,12 +1,9 @@
 package net.glinsey.archive.ui.booklist
 
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.browser.customtabs.CustomTabColorSchemeParams
-import androidx.browser.customtabs.CustomTabsIntent
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -19,9 +16,9 @@ import net.glinsey.archive.ui.BookViewModel
  */
 class BookListFragment : Fragment() {
 
-    lateinit var binding: FragmentBookListBinding
+    private lateinit var binding: FragmentBookListBinding
 
-    val viewModel: BookViewModel by activityViewModels()
+    private val viewModel: BookViewModel by activityViewModels()
 
 
 

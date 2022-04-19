@@ -1,17 +1,13 @@
 package net.glinsey.archive.ui.booklist
 
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import coil.load
+import androidx.recyclerview.widget.RecyclerView
 import net.glinsey.archive.databinding.FragmentBookItemBinding
 import net.glinsey.archive.databinding.LoadNextFragmentBinding
 import net.glinsey.archive.utils.loadImageLink
-
 import net.glinsey.model.Volume
 
 
@@ -39,7 +35,7 @@ class VolumeListAdapter(
         return when (viewType) {
              ITEM_VIEW_TYPE_FOOTER -> LoadNextViewHolder.from(parent)
              ITEM_VIEW_TYPE_ITEM -> ViewHolder.from(parent)
-            else -> throw ClassCastException("Unknown viewType ${viewType}")
+            else -> throw ClassCastException("Unknown viewType $viewType")
         }
 
     }
