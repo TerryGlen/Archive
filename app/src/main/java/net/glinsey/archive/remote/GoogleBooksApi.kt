@@ -8,7 +8,11 @@ import retrofit2.http.Query
 interface GoogleBooksApi {
 
     @GET("volumes")
-    suspend fun getBooks(@Query("q") query: String) : VolumesResponse
+    suspend fun getBooks(
+        @Query("q") query: String,
+        @Query("startIndex") startIndex: Int = 0,
+        @Query("maxResults") maxResults: Int = 20,
+    ) : VolumesResponse
 
 
 }
