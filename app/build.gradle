@@ -29,6 +29,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 def nav_version = "2.4.2"
@@ -51,6 +54,8 @@ dependencies {
 
     // Coroutines Support
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1")
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
     testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1")
 
 

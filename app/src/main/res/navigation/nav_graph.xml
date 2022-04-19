@@ -3,11 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/bookListFragment">
 
     <fragment
         android:id="@+id/mainFragment"
         android:name="net.glinsey.archive.ui.main.MainFragment"
         android:label="main_fragment"
         tools:layout="@layout/main_fragment" />
+    <fragment
+        android:id="@+id/bookListFragment"
+        android:name="net.glinsey.archive.ui.booklist.BookListFragment"
+        android:label="fragment_book_list"
+        tools:layout="@layout/fragment_book_list" />
 </navigation>
