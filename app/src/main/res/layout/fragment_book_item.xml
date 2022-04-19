@@ -23,7 +23,7 @@
 
         <TextView
             android:id="@+id/title"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/text_margin"
             android:textAppearance="?attr/textAppearanceListItem"
@@ -31,8 +31,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.513"
-            tools:text="Hitchhikers Guide to the Galaxy" />
+            android:maxLines="1"
+            android:ellipsize="end"
+            tools:text="@string/sample_book_title" />
 
         <TextView
             android:id="@+id/authors"
@@ -41,25 +42,24 @@
             android:layout_margin="@dimen/text_margin"
             android:layout_marginStart="72dp"
             android:layout_marginTop="16dp"
-            android:textAppearance="?attr/textAppearanceListItem"
+            android:textAppearance="?attr/textAppearanceCaption"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.452"
             app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toBottomOf="@+id/title"
-            tools:text="Douglas Adams" />
+            tools:text="@string/sample_book_author" />
 
         <TextView
             android:id="@+id/publish_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/text_margin"
-            android:textAppearance="?attr/textAppearanceListItem"
+            android:textAppearance="?attr/textAppearanceCaption"
             app:layout_constraintBottom_toTopOf="@+id/title"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.949"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Apr. 3rd 2020" />
+            android:maxLines="1"
+            android:ellipsize="end"
+            tools:text="@string/sample_book_date" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

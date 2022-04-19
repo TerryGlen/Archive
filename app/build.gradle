@@ -36,6 +36,8 @@ android {
 
 def nav_version = "2.4.2"
 def retrofit_version = "2.9.0"
+def paging_version = "3.1.1"
+
 dependencies {
 
     // Retrofit for Manging Network Request
@@ -61,7 +63,8 @@ dependencies {
     // Coil for Image Loading
     implementation("io.coil-kt:coil:2.0.0-rc03")
 
-
+    // For Native Like Browser Support
+    implementation("androidx.browser:browser:1.4.0")
 
 
 
